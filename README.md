@@ -56,4 +56,5 @@ This project puts **Early Warning Signal (EWS) Theory** to the test using real p
 
 ---
 
+## Pre-print available at: https://eartharxiv.org/repository/view/9558/
 
