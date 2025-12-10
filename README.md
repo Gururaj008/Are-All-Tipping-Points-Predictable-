@@ -1,85 +1,42 @@
-Are All Tipping Points Predictable?
+# Are All Tipping Points Predictable?
+**A Test of Early Warning Signal Theory on Holocene Climate Events**
 
-A Test of Early Warning Signal Theory on Holocene Climate Events
+**Author:** Gururaj H C  
+**License:** MIT License
 
-Author: Gururaj H C
-License: MIT License
-Project Overview
-
-This repository contains the code and data for the research paper: "Are All Tipping Points Predictable? A Test of Early Warning Signal Theory on Three Distinct Holocene Climate Events."
+## Project Overview
+This repository contains the code and data for the research paper: *"Are All Tipping Points Predictable? A Test of Early Warning Signal Theory on Three Distinct Holocene Climate Events."*
 
 This project evaluates Early Warning Signal (EWS) theory using high-resolution palaeoclimate data. By analyzing oxygen isotope records around major Holocene climate transitions, we assess the robustness of statistical indicators (autocorrelation and variance) across different detrending methods and window sizes.
-Dataset
 
-    Source: NGRIP ice core
+## Dataset
+- **Source:** NGRIP ice core δ¹⁸O record.
+- **File:** `dataset.txt` (Tab-separated values: `age_calBP`, `d18O_vsmow`).
+- **Events Analyzed:**
+  1. Younger Dryas Termination (~11,700 BP)
+  2. 8.2k Event (~8,200 BP)
+  3. Holocene Thermal Maximum Onset (~6,500 BP)
 
-            
-    δ18Oδ18O
-
-          
-
-    record.
-
-    File: dataset.txt (Tab-separated values: age_calBP, d18O_vsmow).
-
-    Events Analyzed:
-
-        Younger Dryas Termination (~11,700 BP)
-
-        8.2k Event (~8,200 BP)
-
-        Holocene Thermal Maximum Onset (~6,500 BP)
-
-Methodology
-
+## Methodology
 The Python notebook implements the following pipeline:
+1. **Preprocessing:** Extraction of time windows (± 2000 years) around specific transitions.
+2. **Detrending:** Application of four distinct methods:
+   - Gaussian Kernel Smoothing
+   - Savitzky-Golay Filter
+   - Univariate Spline Fitting
+   - First Differencing
+3. **Metric Calculation:** Rolling Lag-1 Autocorrelation (AR1) and Variance.
+4. **Significance Testing:** Kendall’s τ trend strength evaluated against 300 phase-randomized surrogate series.
 
-    Preprocessing: Extraction of time windows (
+## Key Findings
+- **Holocene Thermal Maximum:** Displays a robust, consistent autocorrelation signal across methods.
+- **Younger Dryas:** Shows strong signals but is sensitive to window size selection.
+- **8.2k Event:** Lacks a consistent early warning signal, highlighting the limitations of EWS for rapid, externally forced transitions.
 
-            
-    ±2000±2000
+## Usage
+1. Ensure `dataset.txt` is in the same directory as the notebook.
+2. Run `Are_All_Tipping_Points_Predictable.ipynb`.
+3. Outputs will be generated in the `Figures/` folder.
 
-          
-
-    years) around specific transitions.
-
-    Detrending: Application of four distinct methods:
-
-        Gaussian Kernel Smoothing
-
-        Savitzky-Golay Filter
-
-        Univariate Spline Fitting
-
-        First Differencing
-
-    Metric Calculation: Rolling Lag-1 Autocorrelation (AR1) and Variance.
-
-    Significance Testing: Kendall’s
-
-            
-    ττ
-
-          
-
-    trend strength evaluated against 300 phase-randomized surrogate series.
-
-Key Findings
-
-    Holocene Thermal Maximum: Displays a robust, consistent autocorrelation signal across methods.
-
-    Younger Dryas: Shows strong signals but is sensitive to window size selection.
-
-    8.2k Event: Lacks a consistent early warning signal, highlighting the limitations of EWS for rapid, externally forced transitions.
-
-Usage
-
-    Ensure dataset.txt is in the same directory as the notebook.
-
-    Run Are_All_Tipping_Points_Predictable.ipynb.
-
-    Outputs will be generated in the Figures/ folder.
-
-Preprint
-
+## Preprint
 The preprint for this work is available at: https://eartharxiv.org/repository/view/9558/
